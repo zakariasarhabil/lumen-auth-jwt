@@ -38,6 +38,8 @@ $app = new Laravel\Lumen\Application(
 |
 */
 
+
+
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
@@ -75,6 +77,10 @@ $app->configure('app');
 // $app->middleware([
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
+
+$app->middleware([
+    App\Http\Middleware\CorsMiddleware::class
+ ]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
